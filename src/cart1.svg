@@ -1,0 +1,16 @@
+<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+
+ <title/>
+ <g>
+  <title>background</title>
+  <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path stroke="#56ff56" stroke-width="0" fill="#91caa2" id="svg_1" d="m9.90087,19.950435a1,1 0 0 1 -1,-0.8l-2.34,-11.79a3,3 0 0 0 -2.94,-2.41l-1.72,0a1,1 0 0 1 0,-2l1.72,0a5,5 0 0 1 4.9,4l2.38,11.8a1,1 0 0 1 -0.8,1.2l-0.2,0z" class="cls-1"/>
+  <path fill="#91caa2" id="svg_2" d="m11,27l-1.86,0a4.14,4.14 0 0 1 -0.38,-8.26l18.41,-1.67l1.61,-8.07l-20.78,0a1,1 0 0 1 0,-2l22,0a1,1 0 0 1 0.77,0.37a1,1 0 0 1 0.23,0.83l-2,10a1,1 0 0 1 -0.89,0.8l-19.17,1.74a2.13,2.13 0 0 0 0.2,4.26l1.86,0a1,1 0 0 1 0,2z" class="cls-1"/>
+  <path fill="#91caa2" id="svg_3" d="m26,30a4,4 0 1 1 4,-4a4,4 0 0 1 -4,4zm0,-6a2,2 0 1 0 2,2a2,2 0 0 0 -2,-2z" class="cls-1"/>
+  <path fill="#91caa2" id="svg_4" d="m14,30a4,4 0 1 1 4,-4a4,4 0 0 1 -4,4zm0,-6a2,2 0 1 0 2,2a2,2 0 0 0 -2,-2z" class="cls-1"/>
+  <path fill="#91caa2" id="svg_5" d="m23,27l-6,0a1,1 0 0 1 0,-2l6,0a1,1 0 0 1 0,2z" class="cls-1"/>
+ </g>
+</svg>
