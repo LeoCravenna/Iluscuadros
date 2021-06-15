@@ -1,15 +1,16 @@
 import React from 'react'
-
-const pStyles = {
-    color: 'rgb(20, 107, 220)',
-    textAlign: 'center'
-}
+import ItemCount from '../ItemCount/ItemCount'
 
 // Se puede pasar propiedad {title} en la función como parámetro
-function ItemListContainer(props) {
+function ItemListContainer() {
+    
+    function onAdd(countMax) {
+        console.log("Agregaste al carrito:", countMax, " unidad/es");
+    }
+    
     return (
-        <div>
-            <p style={pStyles}>{props.title}</p>
+        <div style={{marginTop: '20px'}}>
+            <ItemCount stock={5} initial={1} onAdd={onAdd} />
         </div>
     )
 }

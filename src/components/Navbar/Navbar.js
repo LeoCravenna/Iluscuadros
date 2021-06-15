@@ -7,7 +7,7 @@ import MenuWidget from '../MenuWidget/MenuWidget'
 
 function Navbar() {
     return (
-        <nav className="nav">
+        <div className="nav">
       
             <div className="navLink">
                 <h1>Iluscuadros</h1>
@@ -26,7 +26,7 @@ function Navbar() {
                 <CartWidget />
             </div>
 
-        </nav>
+        </div>
     )
 }
 
