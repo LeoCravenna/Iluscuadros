@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
 import { Button, Card, Image } from 'semantic-ui-react'
-import cuadro from '../../cuadro_ejemplo.jpg'
 import './ItemCount.css'
 
 function ItemCount ({ stock, initial, onAdd }) {
@@ -35,10 +34,10 @@ function ItemCount ({ stock, initial, onAdd }) {
     return (
         <div className='container'>
             <Card>
-                <Image src={cuadro} /> 
+                <Image src={"https://d3ugyf2ht6aenh.cloudfront.net/stores/001/070/999/products/sw-23-clara-vertical201-e35ac961105bd55f1716221358472739-1024-1024.png"} /> 
 
                 <div className='card-header'>
-                    <h2>La Gioconda</h2>
+                    <h2>Star Wars</h2>
                 </div>
                 
                 <div className='card-content'>
@@ -50,7 +49,7 @@ function ItemCount ({ stock, initial, onAdd }) {
                 <Card.Content>
 
                     <div className='ui two buttons'>
-                        <Button basic color='blue' onClick={handleCounterStock}>Agregar al carrito</Button>
+                        <Button color='blue' onClick={handleCounterStock}>AGREGAR AL CARRITO</Button>
                     </div>
 
                 </Card.Content>
