@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Navbar.css'
 
 //COMPONENTES
@@ -7,17 +8,17 @@ import MenuWidget from '../MenuWidget/MenuWidget'
 
 function Navbar() {
     return (
-        <div className="nav">
+        <nav className="nav">
       
             <div className="navLink">
-                <h1>Iluscuadros</h1>
+                <Link to="/"><h1>Iluscuadros</h1></Link>
             </div>
             <div className="iconMenu"><MenuWidget /></div>
 
             <ul className="navMenu">
-                <li className="navLink"><a href="https://es.reactjs.org/">Sobre mí</a></li>
-                <li className="navLink"><a href="https://es.reactjs.org/">Productos</a></li>
-                <li className="navLink"><a href="https://es.reactjs.org/">Contactarme</a></li>
+                <Link to="/aboutMe" className="navLink"><a href="https://es.reactjs.org/">Sobre mí</a></Link>
+                <Link to="/" className="navLink"><a href="https://es.reactjs.org/">Catálogo</a></Link>
+                <Link to="/contactMe" className="navLink"><a href="https://es.reactjs.org/">Contactarme</a></Link>
             </ul>
 
             <div className="navBtn">
@@ -26,7 +27,7 @@ function Navbar() {
                 <CartWidget />
             </div>
 
-        </div>
+        </nav>
     )
 }
 

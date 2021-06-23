@@ -1,12 +1,11 @@
 import React from 'react'
 import { Button, Card, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-import './Item.css'
 
-function Item({item}) {
+function ItemDetail({item}) {
     return (
-
         <div>
+            
             <Card>
                 <Image src={item.img} /> 
 
@@ -27,8 +26,8 @@ function Item({item}) {
 
                     <div className='ui two buttons'>
 
-                        <Link to={`/Item/${item.char_id}`}>
-                            <Button color='teal' style={{margin: '1px'}}>+ INFO</Button>
+                        <Link to="/">
+                            <Button color='red' style={{margin: '1px'}}>VOLVER</Button>
                         </Link>
                     
                         <Button color='blue' style={{margin: '1px'}}>LO QUIERO</Button>
@@ -37,10 +36,9 @@ function Item({item}) {
 
                 </Card.Content>
 
-            </Card>    
+            </Card>
         </div>
-
     )
 }
 
-export default Item
+export default ItemDetail
