@@ -4,7 +4,7 @@ import './Footer.css'
 
 function Footer() {
     return (
-        <Segment inverted vertical style={{ padding: '2em 0em', backgroundColor: '#0d4557' }}>
+        <Segment inverted vertical style={{ padding: '2em 0em', backgroundColor: '#0d4557', bottom: '0', left: '0', position: 'fixed', width: '100%'}}>
         <Container>
             <Grid>
                 <Grid.Row centered>

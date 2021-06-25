@@ -6,7 +6,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 // COMPONENTES
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
+//import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer'
+import Category from './views/Category/Category'
 
 //VISTAS
 import Home from './views/Home/Home'
@@ -19,16 +21,17 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-        
+          
           <Navbar />
           
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/aboutMe" component={AboutMe} />
             <Route path="/item/:id" component={ItemDetailContainer} />
+            <Route path="/category/:categoryId" component={Category} />
             <Route path="/contactMe" component={ContactMe} />
           </Switch>
-
+          
           <Footer />
 
         </div>  

@@ -13,12 +13,12 @@ function ItemList() {
     useEffect(() => {
         //const promesa = new Promise((resolve,reject) => {
             
-            //setTimeout(() => {
-                
+            setTimeout(() => {
+            
                 //resolve(cuadros)
                 axios.get('https://www.breakingbadapi.com/api/characters').then((res) => setProds(res.data));
 
-            //}, 2000);
+            }, 2000);
 
         //})
         /*promesa.then((resultado) => {

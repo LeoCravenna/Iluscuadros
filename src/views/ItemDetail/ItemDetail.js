@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Card, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import './ItemDetail.css'
 
 function ItemDetail({item}) {
     return (
@@ -15,24 +16,30 @@ function ItemDetail({item}) {
                 </div>
 
                 <div className='card-price'>
-                    <h3>{item.nickname}</h3>
+                    <h3>Nickname: {item.nickname}</h3>
                 </div>
 
                 <div className='card-description'>
-                    <p>{item.status}</p>
+                    <p><b>Birthday:</b> {item.birthday}</p>
+                </div>
+
+                <div className='card-description'>
+                    <p><b>Occupation:</b> {item.occupation}</p>
+                </div>
+
+                <div className='card-description'>
+                    <p><b>Category:</b> {item.category}</p>
+                </div>
+
+                <div className='card-description'>
+                    <p><b>Status:</b> {item.status}</p>
                 </div>
                 
                 <Card.Content>
 
-                    <div className='ui two buttons'>
-
                         <Link to="/">
-                            <Button color='red' style={{margin: '1px'}}>VOLVER</Button>
+                            <Button className="ui fluid button" color='red' style={{margin: '1px'}}>VOLVER</Button>
                         </Link>
-                    
-                        <Button color='blue' style={{margin: '1px'}}>LO QUIERO</Button>
-
-                    </div>
 
                 </Card.Content>
 

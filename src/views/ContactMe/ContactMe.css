@@ -1,7 +1,11 @@
-.containerItemDetail {
+.contactContainer {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     margin-top: 20px;
     margin-bottom: 20px;
+    /*min-height: 80vh;*/
+}
+
+.content {
+    text-align: center;
 }

@@ -17,7 +17,18 @@ function Navbar() {
 
             <ul className="navMenu">
                 <Link to="/aboutMe" className="navLink"><a href="https://es.reactjs.org/">Sobre mí</a></Link>
-                <Link to="/" className="navLink"><a href="https://es.reactjs.org/">Catálogo</a></Link>
+
+                <div className="dropdown">
+                    <Link to="/" className="navLink"><a href="https://es.reactjs.org/">Catálogo</a></Link>
+                
+                    <ul>
+                        <Link className="Link" to={'/category/Alive'}>Vivos</Link>
+                        <Link className="Link" to={'/category/Presumed dead'}>Presunto Muerto</Link>
+                        <Link className="Link" to={'/category/Deceased'}>Fallecido</Link>
+                    </ul>
+                
+                </div>    
+                
                 <Link to="/contactMe" className="navLink"><a href="https://es.reactjs.org/">Contactarme</a></Link>
             </ul>
 

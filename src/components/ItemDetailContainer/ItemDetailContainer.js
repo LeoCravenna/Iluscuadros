@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
+import './ItemDetailContainer.css'
 
 //COMPONENTES
 import ItemDetail from '../../views/ItemDetail/ItemDetail'
@@ -18,7 +19,7 @@ function ItemDetailContainer({match}) {
     }, [itemID])
     
     return (
-        <div>
+        <div className="containerItemDetail">
 
             {items.map(item => 
                 
