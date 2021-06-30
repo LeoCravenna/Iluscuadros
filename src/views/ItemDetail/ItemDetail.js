@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Button, Card, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import './ItemDetail.css'
+import '../../components/ItemCount/ItemCount.css'
+
+//COMPONENTES
+import ItemCount from '../../components/ItemCount/ItemCount'
 
 function ItemDetail({item}) {
+
+    const [cantItems, setCantItems] = useState(0);
+
+    const onAdd = (e) => {
+        setCantItems(e);       
+    }
+
     return (
         <div>
             
@@ -37,9 +48,18 @@ function ItemDetail({item}) {
                 
                 <Card.Content>
 
-                        <Link to="/">
-                            <Button className="ui fluid button" color='red' style={{margin: '1px'}}>VOLVER</Button>
-                        </Link>
+                    {
+                    cantItems === 0 ? 
+                        <ItemCount stock={5} initial={1} onAdd={onAdd}/>
+                    :   
+                        <Link to={'/cart'}>
+                            <Button className="ui fluid button" color="green" style={{margin: '1px 1px 5px 1px'}}>FINALIZAR COMPRA ({cantItems} unidad/es)</Button>         
+                        </Link> 
+                    }    
+
+                    <Link to="/">
+                        <Button className="ui fluid button" color='red' style={{margin: '1px'}}>VOLVER</Button>
+                    </Link>
 
                 </Card.Content>
 

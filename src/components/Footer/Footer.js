@@ -8,7 +8,7 @@ function Footer() {
         <Container>
             <Grid>
                 <Grid.Row centered>
-            
+                
                     <Grid.Column >
                         <Header style={{textAlign: 'center'}} as='h3' inverted>
                             Iluscuadros. Todos los derechos reservados.

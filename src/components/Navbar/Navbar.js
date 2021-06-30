@@ -6,6 +6,7 @@ import './Navbar.css'
 import CartWidget from '../CartWidget/CartWidget'
 import MenuWidget from '../MenuWidget/MenuWidget'
 
+
 function Navbar() {
     return (
         <nav className="nav">
@@ -18,24 +19,24 @@ function Navbar() {
             <ul className="navMenu">
                 <Link to="/aboutMe" className="navLink"><a href="https://es.reactjs.org/">Sobre mí</a></Link>
 
-                <div className="dropdown">
-                    <Link to="/" className="navLink"><a href="https://es.reactjs.org/">Catálogo</a></Link>
-                
-                    <ul>
-                        <Link className="Link" to={'/category/Alive'}>Vivos</Link>
-                        <Link className="Link" to={'/category/Presumed dead'}>Presunto Muerto</Link>
-                        <Link className="Link" to={'/category/Deceased'}>Fallecido</Link>
+                <Link className="btn_categorias btn dropdown-toggle" to="/" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Catálogo</Link>
+
+                    <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <li><Link className="linkCategorias dropdown-item" to={'/category/Alive'}>Vivos</Link></li>
+                        <li><Link className="linkCategorias dropdown-item" to={'/category/Presumed dead'}>Presunto Muerto</Link></li>
+                        <li><Link className="linkCategorias dropdown-item" to={'/category/Deceased'}>Fallecido</Link></li>
+                        <li><Link className="linkCategorias2 dropdown-item" to="/">Ver todo</Link></li>
                     </ul>
-                
-                </div>    
-                
+  
                 <Link to="/contactMe" className="navLink"><a href="https://es.reactjs.org/">Contactarme</a></Link>
             </ul>
 
             <div className="navBtn">
                 <div className="navLink2"><a href="https://es.reactjs.org/">Registrarme</a></div>
                 <div className="navBtnLink">Iniciar Sesión</div>
-                <CartWidget />
+                <Link to="/cart">
+                    <CartWidget />
+                </Link>
             </div>
 
         </nav>
