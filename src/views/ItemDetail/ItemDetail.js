@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Button, Card, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import './ItemDetail.css'
@@ -7,12 +7,18 @@ import '../../components/ItemCount/ItemCount.css'
 //COMPONENTES
 import ItemCount from '../../components/ItemCount/ItemCount'
 
+//CONTEXT
+import { CartContext } from '../../CartContext/CartContext'
+
 function ItemDetail({item}) {
 
     const [cantItems, setCantItems] = useState(0);
+    const {addItem, removeItem, clear, cartItems} = useContext(CartContext);
 
-    const onAdd = (e) => {
-        setCantItems(e);       
+    const onAdd = (item,e) => {
+        setCantItems(e);   
+        addItem(item, e);
+        console.log(item);    
     }
 
     return (
@@ -50,10 +56,10 @@ function ItemDetail({item}) {
 
                     {
                     cantItems === 0 ? 
-                        <ItemCount stock={5} initial={1} onAdd={onAdd}/>
+                        <ItemCount stock={5} initial={1} onAdd={onAdd} item={item} />
                     :   
                         <Link to={'/cart'}>
-                            <Button className="ui fluid button" color="green" style={{margin: '1px 1px 5px 1px'}}>FINALIZAR COMPRA ({cantItems} unidad/es)</Button>         
+                            <Button onClick={onAdd} className="ui fluid button" color="green" style={{margin: '1px 1px 5px 1px'}}>FINALIZAR COMPRA ({cantItems} unidad/es)</Button>         
                         </Link> 
                     }    
 

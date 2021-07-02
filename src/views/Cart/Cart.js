@@ -1,12 +1,16 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { CartContext } from '../../CartContext/CartContext'
 import './Cart.css'
 
 function Cart() {
+
+    const {addItem, removeItem, clear, cartItems} = useContext(CartContext);
+    console.log(cartItems);
     return (
         <div className="cartContainer">
             <div className="content">
                 <h1>Carrito</h1>
-                <p>Lorem Ipsum is Lorem Ipsum</p>
+                <p>{cartItems.name}</p>
             </div>
         </div>
     )

@@ -16,28 +16,33 @@ import AboutMe from './views/AboutMe/AboutMe'
 import ContactMe from './views/ContactMe/ContactMe'
 import Cart from './views/Cart/Cart'
 
+//CONTEXT
+import { CartProvider } from './CartContext/CartContext'
+
 class App extends Component {
 
   render() {
     return (
-      <Router>
-        <div className="App">
-          
-          <Navbar />
-          
-          <Switch>
-            <Route path="/" exact component={ItemListContainer} />
-            <Route path="/aboutMe" component={AboutMe} />
-            <Route path="/item/:id" component={ItemDetailContainer} />
-            <Route path="/category/:categoryId" component={ItemListContainer} />
-            <Route path="/contactMe" component={ContactMe} />
-            <Route path='/cart' component={Cart} />
-          </Switch>
-          
-          <Footer />
+      <CartProvider>
+        <Router>
+          <div className="App">
+            
+            <Navbar />
+            
+            <Switch>
+              <Route path="/" exact component={ItemListContainer} />
+              <Route path="/aboutMe" component={AboutMe} />
+              <Route path="/item/:id" component={ItemDetailContainer} />
+              <Route path="/category/:categoryId" component={ItemListContainer} />
+              <Route path="/contactMe" component={ContactMe} />
+              <Route path='/cart' component={Cart} />
+            </Switch>
+            
+            <Footer />
 
-        </div>  
-      </Router>
+          </div>  
+        </Router>
+      </CartProvider>
     )
   }
 }
