@@ -7,35 +7,42 @@ export const CartProvider = (props) => {
 
     const [cartItems, setCartItems] = useState([]);
 
+    console.log("Estado antes:",cartItems);
+
     const addItem = (item, quantity) => {
-        if (!isInCart(item.id_char)) {
-        cartItems.push({item: item, quantity: quantity});
-        console.log(cartItems);
-        } 
-    }
 
-    const isInCart = (id) => {
-        if (cartItems.findIndex((i) => i.item.id === id) >= 0) {
-        return true;
+        const isInCart = cartItems.find(cart => cart.item.char_id === item.char_id);
+    
+        if (isInCart !== undefined) {
+            const newQuantity = isInCart.quantity + quantity;
+            const newCart = cartItems.filter(cart => cart.item.char_id !== item.char_id);
+
+            setCartItems([
+                ...newCart, {item, quantity:newQuantity}
+            ])
+
         } else {
-        return false;
-        }
+
+            setCartItems([
+                ...cartItems, {item, quantity}
+            ])
+
+        }   
+    
     }
 
-    const removeItem = (id) => {
+    /*const removeItem = (id) => {
         cartItems.splice(
-        cartItems.findIndex((i) => i.item.id === id)
+       
         );
-    }
+    }*/
 
-    const clear = () => {
+    /*const clear = () => {
         setCartItems ([])
-    }
-
-    console.log(cartItems);
+    }*/
 
     return (
-        <CartContext.Provider value={{addItem, removeItem, clear, cartItems}}>
+        <CartContext.Provider value={{addItem}}>
             {props.children}
         </CartContext.Provider>
     )

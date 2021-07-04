@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import { CartContext } from '../../CartContext/CartContext'
+import React from 'react'
+//import { CartContext } from '../../CartContext/CartContext'
 import Badge from 'react-bootstrap/Badge'
 import cart from '../../cart1.svg';
 
@@ -11,13 +11,13 @@ const cartStyle = {
 
 function CartWidget() {
 
-    const {addItem, removeItem, clear, cartItems} = useContext(CartContext);
+    //const {cartItems} = useContext(CartContext);
 
     return (
         <div>
             <img src={cart} style={cartStyle} alt="cart" />
             <Badge variant="light">
-                {cartItems.length}
+          
             </Badge>
         </div>
     )
