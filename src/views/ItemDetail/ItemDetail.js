@@ -17,8 +17,7 @@ function ItemDetail({item}) {
 
     const onAdd = (item,e) => {
         setCantItems(e);   
-        addItem(item, e);
-        console.log(item);    
+        addItem(item, e);  
     }
 
     return (
@@ -59,7 +58,7 @@ function ItemDetail({item}) {
                         <ItemCount stock={5} initial={1} onAdd={onAdd} item={item} />
                     :   
                         <Link to={'/cart'}>
-                            <Button onClick={onAdd} className="ui fluid button" color="green" style={{margin: '1px 1px 5px 1px'}}>FINALIZAR COMPRA ({cantItems} unidad/es)</Button>         
+                            <Button className="ui fluid button" color="green" style={{margin: '1px 1px 5px 1px'}}>FINALIZAR COMPRA ({cantItems} unidad/es)</Button>         
                         </Link> 
                     }    
 

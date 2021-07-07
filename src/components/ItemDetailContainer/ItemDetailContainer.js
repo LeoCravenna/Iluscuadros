@@ -23,7 +23,7 @@ function ItemDetailContainer({match}) {
 
             {items.map(item => 
                 
-                <ItemDetail item={item}/>
+                <ItemDetail key={item.char_id} item={item}/>
 
             )}
 

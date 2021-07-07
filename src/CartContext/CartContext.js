@@ -31,18 +31,24 @@ export const CartProvider = (props) => {
     
     }
 
-    /*const removeItem = (id) => {
-        cartItems.splice(
-       
-        );
-    }*/
+    console.log("Estado despues:",cartItems);
 
-    /*const clear = () => {
+    const removeItem = (id) => {
+
+        const getItem = [...cartItems];
+        let newItem = getItem.find(obj => obj.item.char_id === id);
+        let i = getItem.indexOf(newItem);
+        getItem.splice(i, 1); 
+        setCartItems(getItem);
+
+    }
+
+    const clear = () => {
         setCartItems ([])
-    }*/
+    }
 
     return (
-        <CartContext.Provider value={{addItem}}>
+        <CartContext.Provider value={{addItem, removeItem, clear, cartItems}}>
             {props.children}
         </CartContext.Provider>
     )

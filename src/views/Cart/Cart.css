@@ -3,9 +3,45 @@
     justify-content: center;
     margin-top: 20px;
     margin-bottom: 20px;
+    width: 100%;
     /*min-height: 80vh;*/
 }
 
-.content {
+.content-cart-item {
     text-align: center;
+    width: 80%;
+}
+
+.content-cart-item .cart-Table{
+    width: 30%;
+    margin-bottom: 30px!important;
+}
+
+/*.cell-Header-Product {
+    width: 300px;
+}*/
+
+.cell-Header-Quantity {
+    width: 100px;
+    text-align:center!important;
+}
+
+.cell-Header-Action {
+    width: 100px;
+    text-align:center!important;
+}
+
+.cart-Item-Image {
+    width:10%;
+    height:auto;
+}
+
+.icon-Item-Delete {
+    margin: 0px!important;
+    font-size: 24px!important;
+}
+
+.icon-Item-Delete-All {
+    margin: 0px!important;
+    font-size: 20px!important;
 }
