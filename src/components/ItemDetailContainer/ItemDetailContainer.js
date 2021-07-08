@@ -8,22 +8,36 @@ import ItemDetail from '../../views/ItemDetail/ItemDetail'
 function ItemDetailContainer({match}) {
     
     let itemID = match.params.id;
+
+    console.log("id recibido por parámetro:",itemID);
     const [items, setItems] = useState([]);
     
-    useEffect(() => {
+    /*useEffect(() => {
     
         axios(`https://www.breakingbadapi.com/api/characters/${itemID}`).then((res) => 
             setItems(res.data)
         );
             
-    }, [itemID])
+    }, [itemID])*/
+
+    useEffect(() => {
+        axios('../Json/Cuadros.json')
+       .then(res => setItems(res.data));    
+    }, []);
     
+
+console.log("Trae el item del json:",items);    
+
+let itemDetallado = items.filter(item => item.id_cuadro === itemID);
+
+console.log(itemID);
+
     return (
         <div className="containerItemDetail">
 
-            {items.map(item => 
+            {itemDetallado.map(item => 
                 
-                <ItemDetail key={item.char_id} item={item}/>
+                <ItemDetail key={item.id_cuadro} item={item}/>
 
             )}
 

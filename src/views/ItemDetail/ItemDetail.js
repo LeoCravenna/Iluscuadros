@@ -24,31 +24,25 @@ function ItemDetail({item}) {
         <div>
             
             <Card>
-                <Image src={item.img} /> 
+                <Image src={item.pictureUrl} /> 
 
                 <div className='card-title'>
-                    <h2>{item.name}</h2>
+                    <h2>{item.title}</h2>
                     
                 </div>
 
                 <div className='card-price'>
-                    <h3>Nickname: {item.nickname}</h3>
+                    <h3>Precio: {item.price}</h3>
                 </div>
 
-                <div className='card-description'>
-                    <p><b>Birthday:</b> {item.birthday}</p>
-                </div>
-
-                <div className='card-description'>
-                    <p><b>Occupation:</b> {item.occupation}</p>
-                </div>
+            
 
                 <div className='card-description'>
                     <p><b>Category:</b> {item.category}</p>
                 </div>
 
                 <div className='card-description'>
-                    <p><b>Status:</b> {item.status}</p>
+                    <p><b>Descripción:</b> {item.description}</p>
                 </div>
                 
                 <Card.Content>

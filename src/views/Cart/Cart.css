@@ -17,11 +17,31 @@
     margin-bottom: 30px!important;
 }
 
-/*.cell-Header-Product {
-    width: 300px;
+.cell-Header-Product {
+    width: 200px;
+}
+
+/*.cell-Header-Title {
+    width: 200px;
+    text-align:center!important;
 }*/
 
+.cell-Header-Category {
+    width: 150px;
+    text-align:center!important;
+}
+
+.cell-Header-Price {
+    width: 150px;
+    text-align:center!important;
+}
+
 .cell-Header-Quantity {
+    width: 100px;
+    text-align:center!important;
+}
+
+.cell-Header-Subtotal {
     width: 100px;
     text-align:center!important;
 }
@@ -31,14 +51,49 @@
     text-align:center!important;
 }
 
+.cell-Header-Total {
+    text-align:right!important;
+    font-size: 22px!important;
+    padding-top: 10px!important;
+    padding-bottom: 10px!important;
+}
+
 .cart-Item-Image {
-    width:10%;
+    width:200px;
     height:auto;
+}
+
+.cart-Item-Title {
+    font-size: 22px!important;
+    margin-top: 5px;
+}
+
+.cart-Item-Category {
+    text-align:center!important;
+    font-size: 22px!important;
+    margin-top: 5px;
+}
+
+.cart-Item-Price {
+    text-align:center!important;
+    font-size: 22px!important;
+    margin-top: 5px;
+}
+
+.cart-Item-Subtotal {
+    text-align:center!important;
+    font-size: 22px!important;
+    margin-top: 5px;
+}
+
+.container-Btn-Remove {
+    text-align:center!important;
+    margin-top: 5px;
 }
 
 .icon-Item-Delete {
     margin: 0px!important;
-    font-size: 24px!important;
+    font-size: 22px!important;
 }
 
 .icon-Item-Delete-All {

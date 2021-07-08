@@ -22,9 +22,9 @@ function Navbar() {
                 <Link className="btn_categorias btn dropdown-toggle" to="/" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">Catálogo</Link>
 
                     <ul className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <li><Link className="linkCategorias dropdown-item" to={'/category/Alive'}>Vivos</Link></li>
-                        <li><Link className="linkCategorias dropdown-item" to={'/category/Presumed dead'}>Presunto Muerto</Link></li>
-                        <li><Link className="linkCategorias dropdown-item" to={'/category/Deceased'}>Fallecido</Link></li>
+                        <li><Link className="linkCategorias dropdown-item" to={'/category/music'}>Música</Link></li>
+                        <li><Link className="linkCategorias dropdown-item" to={'/category/movie'}>Películas</Link></li>
+                        <li><Link className="linkCategorias dropdown-item" to={'/category/sports'}>Deportes</Link></li>
                         <li><Link className="linkCategorias2 dropdown-item" to="/">Ver todo</Link></li>
                     </ul>
   

@@ -32,24 +32,24 @@ function Item({item}) {
             })
         }    
 	};*/
-
+    console.log(item.id_cuadro);
     return (
 
         <div className="card-container">
             <Card>
-                <Image src={item.img} className="Image" /> 
+                <Image src={item.pictureUrl} className="Image" /> 
 
                 <div className='card-title'>
-                    <h2>{item.name}</h2>
+                    <h2>{item.title}</h2>
                     
                 </div>
 
                 <div className='card-price'>
-                    <h3>{item.nickname}</h3>
+                    <h3>{item.price}</h3>
                 </div>
 
                 <div className='card-description'>
-                    <p>{item.status}</p>
+                    <p>{item.category}</p>
                 </div>
                 
                 {/*<div className='card-content'>
@@ -60,7 +60,7 @@ function Item({item}) {
 
                 <Card.Content>
 
-                    <Link to={`/Item/${item.char_id}`}>
+                    <Link to={`/Item/${item.id_cuadro}`}>
                         <Button className="ui fluid button" color='teal' style={{margin: '1px'}}>MÁS INFORMACIÓN</Button>
                     </Link>
 

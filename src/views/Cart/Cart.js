@@ -4,19 +4,19 @@ import { Table, Button, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 
 import './Cart.css'
-import '../../components/ItemCount/ItemCount.css'
+import '../../components/ItemCountCart/ItemCountCart.css'
 
 //COMPONENTES
-import ItemCount from '../../components/ItemCount/ItemCount'
+import ItemCountCart from '../../components/ItemCountCart/ItemCountCart'
 
 function Cart() {
     
-    const {addItem, removeItem, clear, cartItems} = useContext(CartContext);
+    const {removeItem, clear, cartItems} = useContext(CartContext);
 
-    const onAdd = (item,e) => {
+    /*const onAdd = (item,e) => {
         //setCantItems(e);   
         addItem(item, e);  
-    }
+    }*/
 
     return (
         <div className="cartContainer">
@@ -30,14 +30,18 @@ function Cart() {
                     {cartItems.map((item)=>{
                         return (
                 
-                            <div key={item.item.char_id}>
+                            <div key={item.item.id_cuadro}>
 
                                 <Table color='blue' className='cart-Table'>
                                     <Table.Header>
                                         <Table.Row>
-                                            <Table.HeaderCell className='cell-Header-Product'>Producto</Table.HeaderCell>
-                                            <Table.HeaderCell className='cell-Header-Quantity'>Cantidad</Table.HeaderCell>
-                                            <Table.HeaderCell className='cell-Header-Action'>Acción</Table.HeaderCell>
+                                            <Table.HeaderCell className='cell-Header-Product'><b>Producto</b></Table.HeaderCell>
+                                            <Table.HeaderCell className='cell-Header-Title'><b>Nombre del Producto</b></Table.HeaderCell>
+                                            <Table.HeaderCell className='cell-Header-Category'><b>Categoría</b></Table.HeaderCell>
+                                            <Table.HeaderCell className='cell-Header-Price'><b>Precio x unid.</b></Table.HeaderCell>
+                                            <Table.HeaderCell className='cell-Header-Quantity'><b>Cantidad</b></Table.HeaderCell>
+                                            <Table.HeaderCell className='cell-Header-Subtotal'><b>Subtotal</b></Table.HeaderCell>
+                                            <Table.HeaderCell className='cell-Header-Action'><b>Acción</b></Table.HeaderCell>
                                         </Table.Row>
                                     </Table.Header>
 
@@ -45,30 +49,57 @@ function Cart() {
                                         <Table.Row>
                                             <Table.Cell>
                                                 {
-                                                    <img src={item.item.img} alt={item.item.name} className="cart-Item-Image"/>
-                                                }
-                                                {
-                                                    item.item.name
+                                                    <img src={item.item.pictureUrl} alt={item.item.title} className="cart-Item-Image"/>
                                                 }
                                             </Table.Cell>
 
                                             <Table.Cell>
                                                 {
-                                                    <ItemCount stock={5} initial={item.quantity} onAdd={onAdd} item={item} />
+                                                    <div className="cart-Item-Title">{item.item.title}</div>
+                                                }
+                                            </Table.Cell>
+
+                                            <Table.Cell>
+                                                { item.item.category === 'music' ?
+                                                    <div className="cart-Item-Category">Música</div>
+                                                : item.item.category === 'movie' ?
+                                                    <div className="cart-Item-Category">Películas</div> 
+                                                : 
+                                                    <div className="cart-Item-Category">Deportes</div>       
                                                 }
                                             </Table.Cell>
 
                                             <Table.Cell>
                                                 {
-                                                    <Button onClick={()=>removeItem(item.item.char_id)} style={{margin: '15px', backgroundColor: 'transparent', color: 'red'}}>
-                                                        <Icon name="trash alternate" className="icon-Item-Delete" />
-                                                    </Button>
+                                                    <div className="cart-Item-Price">${item.item.price}</div>
+                                                }
+                                            </Table.Cell>    
+
+                                            <Table.Cell>
+                                                {
+                                                    <ItemCountCart stock={item.item.stock} initial={item.quantity} />
+                                                }
+                                            </Table.Cell>
+                                            
+                                            <Table.Cell>
+                                                {
+                                                    <div className="cart-Item-Subtotal">${item.quantity * item.item.price}</div>
+                                                }
+                                            </Table.Cell>         
+
+                                            <Table.Cell>
+                                                {
+                                                    <div className="container-Btn-Remove">
+                                                        <Button onClick={()=>removeItem(item.item.id_cuadro)} style={{margin: '0px', padding: '5px', backgroundColor: 'transparent', color: 'red'}}>
+                                                            <Icon name="trash alternate" className="icon-Item-Delete" />
+                                                        </Button>
+                                                    </div>
                                                 }
                                             </Table.Cell>
                                         </Table.Row>
                                     </Table.Body>
                                 </Table>
-                    
+
                             </div>
 
                         )            
@@ -76,7 +107,24 @@ function Cart() {
                     
                     
                     }
-                    
+
+                        <Table color='green' className='cart-Table'>
+                            <Table.Header>
+                                <Table.Row>
+                                    <Table.HeaderCell className='cell-Header-Total'>
+                                        {
+                                            <div>TOTAL: ${cartItems.map(obj => obj.item.price * obj.quantity).reduce((a,b)=> a + b)}
+                                                <Link to="/">
+                                                    <Button  color='green' style={{paddingTop: '15px', margin: '0px 0px 0px 10px'}}>PAGAR</Button>
+                                                </Link>
+                                            </div>
+                                        }
+                                    </Table.HeaderCell>
+                                </Table.Row>
+                            </Table.Header>
+
+                            
+                        </Table>
                     
                         <Button onClick={()=>clear()} style={{margin: '15px', backgroundColor: 'transparent', color: 'red', border: '1px solid red'}}>
                             <Icon name="trash alternate" className="icon-Item-Delete-All" /><b style={{fontSize:'20px'}}>Eliminar todo</b>
