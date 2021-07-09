@@ -11,11 +11,11 @@ export const CartProvider = (props) => {
 
     const addItem = (item, quantity) => {
 
-        const isInCart = cartItems.find(cart => cart.item.id_cuadro === item.id_cuadro);
+        const isInCart = cartItems.find(cart => cart.item.id === item.id);
     
         if (isInCart !== undefined) {
             const newQuantity = isInCart.quantity + quantity;
-            const newCart = cartItems.filter(cart => cart.item.id_cuadro !== item.id_cuadro);
+            const newCart = cartItems.filter(cart => cart.item.id !== item.id);
 
             setCartItems([
                 ...newCart, {item, quantity:newQuantity}
@@ -36,7 +36,7 @@ export const CartProvider = (props) => {
     const removeItem = (id) => {
 
         const getItem = [...cartItems];
-        let newItem = getItem.find(obj => obj.item.id_cuadro === id);
+        let newItem = getItem.find(obj => obj.item.id === id);
         let i = getItem.indexOf(newItem);
         getItem.splice(i, 1); 
         setCartItems(getItem);

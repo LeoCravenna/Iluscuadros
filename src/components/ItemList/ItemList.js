@@ -12,7 +12,7 @@ function ItemList({categoryItems}) {
         <div className="containerItemList">
             {categoryItems.map(prod => 
                 
-                <Item key={prod.id_cuadro} item={prod} />
+                <Item key={prod.id} item={prod} />
 
             )}
         </div>

@@ -38,20 +38,6 @@ function ItemCountCart({ stock, initial}) {
                 }
 
             </div>
-
-            {/*<Card.Content>
-                <div className='ui two buttons'>
-                
-                    {stock !== 0 && stock >= count && count > 0 ?
-                        <Button className="ui fluid button" color='blue' style={{width:'100%',margin: '1px 1px 5px 1px'}} onClick={()=>onAdd(item,count)}>AGREGAR AL CARRITO</Button>
-
-                    :   <Button className="ui fluid button" disabled={true} color='blue'>AGREGAR AL CARRITO</Button>
-                    
-                    }
-
-                </div>
-                </Card.Content>*/}
- 
         </div>
         
     )

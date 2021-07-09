@@ -32,7 +32,7 @@ function Item({item}) {
             })
         }    
 	};*/
-    console.log(item.id_cuadro);
+    console.log(item.id);
     return (
 
         <div className="card-container">
@@ -41,15 +41,22 @@ function Item({item}) {
 
                 <div className='card-title'>
                     <h2>{item.title}</h2>
-                    
                 </div>
 
-                <div className='card-price'>
-                    <h3>{item.price}</h3>
-                </div>
+                {/*<div className='card-price'>
+                    <h3>${item.price}</h3>
+                </div>*/}
 
                 <div className='card-description'>
-                    <p>{item.category}</p>
+                    {
+                    item.category === 'music'?
+                        <h3>Música</h3>
+                    : item.category === 'movie'?
+                        <h3> Películas</h3>
+                    :
+                        <h3>Deportes</h3>    
+                    }
+                    
                 </div>
                 
                 {/*<div className='card-content'>
@@ -60,7 +67,7 @@ function Item({item}) {
 
                 <Card.Content>
 
-                    <Link to={`/Item/${item.id_cuadro}`}>
+                    <Link to={`/Item/${item.id}`}>
                         <Button className="ui fluid button" color='teal' style={{margin: '1px'}}>MÁS INFORMACIÓN</Button>
                     </Link>
 

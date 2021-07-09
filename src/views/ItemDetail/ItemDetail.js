@@ -32,24 +32,33 @@ function ItemDetail({item}) {
                 </div>
 
                 <div className='card-price'>
-                    <h3>Precio: {item.price}</h3>
+                    <h3>Precio: ${item.price}</h3>
                 </div>
 
-            
-
                 <div className='card-description'>
-                    <p><b>Category:</b> {item.category}</p>
+                    {
+                    item.category === 'music'?
+                        <p><b>Categoría:</b> Música</p>
+                    : item.category === 'movie'?
+                        <p><b>Categoría:</b> Películas</p>
+                    :
+                        <p><b>Categoría:</b> Deportes</p>  
+                    }
                 </div>
 
                 <div className='card-description'>
                     <p><b>Descripción:</b> {item.description}</p>
+                </div>
+
+                <div className='card-stock'>
+                    <h4>Stock disponible: {item.stock} unidades</h4>
                 </div>
                 
                 <Card.Content>
 
                     {
                     cantItems === 0 ? 
-                        <ItemCount stock={5} initial={1} onAdd={onAdd} item={item} />
+                        <ItemCount stock={item.stock} initial={1} onAdd={onAdd} item={item} />
                     :   
                         <Link to={'/cart'}>
                             <Button className="ui fluid button" color="green" style={{margin: '1px 1px 5px 1px'}}>FINALIZAR COMPRA ({cantItems} unidad/es)</Button>         

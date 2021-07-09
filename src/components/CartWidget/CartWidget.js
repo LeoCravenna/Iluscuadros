@@ -41,21 +41,3 @@ function CartWidget() {
 }
 
 export default CartWidget
-
-
-/*class CartWidget extends Component {
-    
-    render() {
-
-        return (
-            <div>
-                <img src={cart} style={cartStyle} alt="cart" />
-                <Badge variant="light">
-                    {cartItems.length}
-                </Badge>
-            </div>
-        )
-    }
-}
-
-export default CartWidget*/

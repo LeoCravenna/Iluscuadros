@@ -5,7 +5,11 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// SEMANTIC UI
 import 'semantic-ui-css/semantic.min.css'
+
+// FIREBASE
+import './Firebase/Firebase'
 
 ReactDOM.render(
   //<React.StrictMode>

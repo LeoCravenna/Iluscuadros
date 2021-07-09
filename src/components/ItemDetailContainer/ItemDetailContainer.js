@@ -1,17 +1,34 @@
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
+//import axios from 'axios'
 import './ItemDetailContainer.css'
 
 //COMPONENTES
 import ItemDetail from '../../views/ItemDetail/ItemDetail'
 
+//FIREBASEAPP
+import { db } from '../../Firebase/Firebase'
+
 function ItemDetailContainer({match}) {
     
     let itemID = match.params.id;
 
-    console.log("id recibido por parámetro:",itemID);
     const [items, setItems] = useState([]);
     
+    const getItems = () => {
+        db.collection('productos').onSnapshot((querySnapshot) => {
+            const docs = [];
+            querySnapshot.forEach((doc) => {
+            docs.push({ ...doc.data(), id: doc.id })
+            });
+            setItems(docs); 
+        });
+    }
+
+    useEffect(() => {
+        getItems();           
+    }, []);
+
+    /////////////////////////////////////////////////////////////////////////////////////
     /*useEffect(() => {
     
         axios(`https://www.breakingbadapi.com/api/characters/${itemID}`).then((res) => 
@@ -20,24 +37,22 @@ function ItemDetailContainer({match}) {
             
     }, [itemID])*/
 
-    useEffect(() => {
+    /*useEffect(() => {
         axios('../Json/Cuadros.json')
        .then(res => setItems(res.data));    
-    }, []);
-    
+    }, []);*/
+    /////////////////////////////////////////////////////////////////////////////////////
 
-console.log("Trae el item del json:",items);    
+    let itemDetallado = items.filter(item => item.id === itemID);
 
-let itemDetallado = items.filter(item => item.id_cuadro === itemID);
-
-console.log(itemID);
+    console.log(itemID);
 
     return (
         <div className="containerItemDetail">
 
             {itemDetallado.map(item => 
                 
-                <ItemDetail key={item.id_cuadro} item={item}/>
+                <ItemDetail key={item.id} item={item}/>
 
             )}
 

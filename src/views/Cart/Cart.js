@@ -13,11 +13,6 @@ function Cart() {
     
     const {removeItem, clear, cartItems} = useContext(CartContext);
 
-    /*const onAdd = (item,e) => {
-        //setCantItems(e);   
-        addItem(item, e);  
-    }*/
-
     return (
         <div className="cartContainer">
             <div className="content-cart-item">
@@ -30,7 +25,7 @@ function Cart() {
                     {cartItems.map((item)=>{
                         return (
                 
-                            <div key={item.item.id_cuadro}>
+                            <div key={item.item.id}>
 
                                 <Table color='blue' className='cart-Table'>
                                     <Table.Header>
@@ -90,7 +85,7 @@ function Cart() {
                                             <Table.Cell>
                                                 {
                                                     <div className="container-Btn-Remove">
-                                                        <Button onClick={()=>removeItem(item.item.id_cuadro)} style={{margin: '0px', padding: '5px', backgroundColor: 'transparent', color: 'red'}}>
+                                                        <Button onClick={()=>removeItem(item.item.id)} style={{margin: '0px', padding: '5px', backgroundColor: 'transparent', color: 'red'}}>
                                                             <Icon name="trash alternate" className="icon-Item-Delete" />
                                                         </Button>
                                                     </div>
