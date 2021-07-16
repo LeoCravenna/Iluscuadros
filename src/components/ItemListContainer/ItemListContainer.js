@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Icon } from 'semantic-ui-react'
 //import axios from 'axios'
 
 //COMPONENTES
@@ -11,6 +12,7 @@ function ItemListContainer({match}) {
 
     let categoryId = match.params.categoryId;
     const [categoryItem, setCategoryItem] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     const getProductos = () => {
         db.collection('productos').onSnapshot((querySnapshot) => {
@@ -23,7 +25,8 @@ function ItemListContainer({match}) {
     }
 
     useEffect(() => {
-        getProductos();           
+        getProductos(); 
+        setIsLoading(false);              
     }, []);
 
     //////////////////////////////////////////////////
@@ -35,18 +38,27 @@ function ItemListContainer({match}) {
     //////////////////////////////////////////////////
      
     let categorySelect = categoryItem.filter(item => item.category === categoryId);
-    
+
     return (
+
         <div style={{marginTop: '20px', marginBottom: '20px'}}>
 
-            {categoryId !== undefined ? // SI EL ID DE LA CATEGORÍA ES DISTINTO A UNDEFINED, MUESTRA LA CATEGORÍA ELEGIDA                                               
-                <ItemList categoryItems={categorySelect}/>
-            
-            :                           // SINO SIGNIFICA QUE EL ID ESTÁ VACÍO, POR ENDE MUESTRA TODO EL ARRAY
-                <ItemList categoryItems={categoryItem}/>          
+            {isLoading === true ?
+                <p style={{fontSize: '30px', color: 'black'}}><Icon loading name='spinner' /> Cargando...</p>
+            :
+                <div>
+                    {categoryId !== undefined ? // SI EL ID DE LA CATEGORÍA ES DISTINTO A UNDEFINED, MUESTRA LA CATEGORÍA ELEGIDA                                               
+                        <ItemList categoryItems={categorySelect}/>
+                    
+                    :                           // SINO SIGNIFICA QUE EL ID ESTÁ VACÍO, POR ENDE MUESTRA TODO EL ARRAY
+                        <ItemList categoryItems={categoryItem}/>          
+                    }
+                </div>
+
             }
 
         </div>
+
     )
 }
 

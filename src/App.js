@@ -15,6 +15,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import AboutMe from './views/AboutMe/AboutMe'
 import ContactMe from './views/ContactMe/ContactMe'
 import Cart from './views/Cart/Cart'
+import OrderForm from './views/OrderForm/OrderForm'
 
 //CONTEXT
 import { CartProvider } from './CartContext/CartContext'
@@ -36,6 +37,7 @@ class App extends Component {
               <Route path="/category/:categoryId" component={ItemListContainer} />
               <Route path="/contactMe" component={ContactMe} />
               <Route path='/cart' component={Cart} />
+              <Route path='/orderForm' component={OrderForm} />
             </Switch>
             
             <Footer />

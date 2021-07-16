@@ -1,0 +1,38 @@
+.formContainer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.inputForm {
+    width: 30%;
+}
+
+.inputFormTotalPrice {
+    width: 30%;
+    text-align: center;
+}
+
+.noItemsInContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+}

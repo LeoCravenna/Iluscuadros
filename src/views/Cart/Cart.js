@@ -109,8 +109,8 @@ function Cart() {
                                     <Table.HeaderCell className='cell-Header-Total'>
                                         {
                                             <div>TOTAL: ${cartItems.map(obj => obj.item.price * obj.quantity).reduce((a,b)=> a + b)}
-                                                <Link to="/">
-                                                    <Button  color='green' style={{paddingTop: '15px', margin: '0px 0px 0px 10px'}}>PAGAR</Button>
+                                                <Link to="/orderForm">
+                                                    <Button color='green' style={{paddingTop: '15px', margin: '0px 0px 0px 10px'}}>REALIZAR EL PEDIDO</Button>
                                                 </Link>
                                             </div>
                                         }
