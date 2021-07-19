@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-//import axios from 'axios'
 import './ItemDetailContainer.css'
 
 //COMPONENTES
@@ -14,7 +13,15 @@ function ItemDetailContainer({match}) {
 
     const [items, setItems] = useState([]);
     
-    const getItems = () => {
+    useEffect(() => {
+        
+        db.collection('productos').doc(itemID).get().then((res) => setItems({id:res.id, ...res.data()}));
+     
+    }, [itemID]);
+
+
+    /////////////////////////////////////////////////////////////////////////////////////
+    /*const getItems = () => {
         db.collection('productos').onSnapshot((querySnapshot) => {
             const docs = [];
             querySnapshot.forEach((doc) => {
@@ -22,11 +29,7 @@ function ItemDetailContainer({match}) {
             });
             setItems(docs); 
         });
-    }
-
-    useEffect(() => {
-        getItems();           
-    }, []);
+    }*/
 
     /////////////////////////////////////////////////////////////////////////////////////
     /*useEffect(() => {
@@ -43,20 +46,17 @@ function ItemDetailContainer({match}) {
     }, []);*/
     /////////////////////////////////////////////////////////////////////////////////////
 
-    let itemDetallado = items.filter(item => item.id === itemID);
+    //let itemDetallado = items.filter(item => item.id === itemID);
 
     console.log(itemID);
 
     return (
         <div className="containerItemDetail">
-
-            {itemDetallado.map(item => 
-                
-                <ItemDetail key={item.id} item={item}/>
-
-            )}
+  
+            <ItemDetail item={items}/>
 
         </div>
+        
     )
 }
 

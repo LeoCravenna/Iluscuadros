@@ -12,14 +12,14 @@ import ItemCountCart from '../../components/ItemCountCart/ItemCountCart'
 function Cart() {
     
     const {removeItem, clear, cartItems} = useContext(CartContext);
-
+    console.log(cartItems);
     return (
         <div className="cartContainer">
             <div className="content-cart-item">
                 <h1>Carrito</h1>
 
                 { cartItems.length > 0 ?
-
+                    
                     <div>
 
                     {cartItems.map((item)=>{

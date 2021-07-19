@@ -20,9 +20,13 @@ import { db } from '../../Firebase/Firebase'
 
 function OrderForm() {
 
-    const {cartItems} = useContext(CartContext);
+    const {clear, cartItems} = useContext(CartContext);
 
-    const totalPrice = "$"+cartItems.map(obj => obj.item.price * obj.quantity).reduce((a,b)=> a + b);
+    let totalPrice = 0;
+
+    for (let i = 0; i < cartItems.length; i++ ) {
+        totalPrice += cartItems[i].item.price * cartItems[i].quantity;
+    }
      
     const orders = db.collection("pedidos");
 
@@ -69,6 +73,8 @@ function OrderForm() {
                          </Link></div>,*/
                     //timer: 2500
                 })
+
+                clear();
             }).catch(err => {
                 console.log("Hubo un error en la carga");
                // setError(err);
@@ -184,8 +190,8 @@ function OrderForm() {
             <div className='noItemsInContainer'>    
                 <h2>No hay ítems</h2>   
 
-                <Link to="/cart">
-                    <Button  color='red' style={{margin: '1px', marginTop: '20px'}}>VOLVER AL CARRITO</Button>
+                <Link to="/">
+                    <Button  color='red' style={{margin: '1px', marginTop: '20px'}}>VOLVER A LA SECCIÓN PRINCIPAL</Button>
                 </Link>
             </div>
         }

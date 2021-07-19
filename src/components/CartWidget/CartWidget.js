@@ -15,11 +15,9 @@ function CartWidget() {
 
     let acumulador = 0;
 
-    if (cartItems.length > 0 && cartItems.length < 2){  
-        acumulador = cartItems[0].quantity;
-
-    } else if (cartItems.length > 0){    
-        acumulador = cartItems.reduce((a,b)=> a.quantity + b.quantity);
+    for (let item of cartItems) {
+        acumulador = acumulador + item.quantity;
+        //console.log(acumulador);
     }
 
     return (

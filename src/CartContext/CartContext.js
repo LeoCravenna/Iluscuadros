@@ -11,6 +11,8 @@ export const CartProvider = (props) => {
 
     const addItem = (item, quantity) => {
 
+        //let nuevoStock = item.stock - quantity;
+
         const isInCart = cartItems.find(cart => cart.item.id === item.id);
     
         if (isInCart !== undefined) {
