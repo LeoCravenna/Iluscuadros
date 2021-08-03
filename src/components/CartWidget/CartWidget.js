@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { CartContext } from '../../CartContext/CartContext'
 import Badge from 'react-bootstrap/Badge'
-import cart from '../../cart1.svg';
+import cart from '../../cart.svg';
 
 const cartStyle = {
     width: '30px',
@@ -17,7 +17,6 @@ function CartWidget() {
 
     for (let item of cartItems) {
         acumulador = acumulador + item.quantity;
-        //console.log(acumulador);
     }
 
     return (

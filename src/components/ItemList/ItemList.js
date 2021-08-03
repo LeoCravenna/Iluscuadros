@@ -1,7 +1,5 @@
 import React from 'react'
-//import axios from 'axios'
 import './ItemList.css'
-//import cuadros from '../../cuadros.json'
 
 //COMPONENTES
 import Item from '../Item/Item'

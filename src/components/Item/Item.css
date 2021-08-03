@@ -15,29 +15,7 @@
     margin-top: 10px;
 }
 
-.card-price {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-}
-
 .card-description {
     text-align: center;
     margin: 10px;
-}
-
-.card-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.card-content b {
-    font-size: 25px;
-}
-
-.card-content p {
-    font-size: 25px;
-    margin:0px
 }

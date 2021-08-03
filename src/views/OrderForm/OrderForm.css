@@ -22,9 +22,17 @@
     width: 30%;
 }
 
-.inputFormTotalPrice {
+.container-totalPrice {
     width: 30%;
-    text-align: center;
+    border-radius: 5px;
+    border: 1px solid green;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.container-totalPrice h3{
+    margin-top: 10px;
 }
 
 .noItemsInContainer {

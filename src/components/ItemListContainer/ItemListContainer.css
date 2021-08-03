@@ -1,0 +1,10 @@
+.containerItem {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.loadingItem {
+    color: black;
+    font-size: 30px;
+    text-align: center;
+}

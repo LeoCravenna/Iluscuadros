@@ -4,7 +4,6 @@
     margin-top: 20px;
     margin-bottom: 20px;
     width: 100%;
-    /*min-height: 80vh;*/
 }
 
 .content-cart-item {
@@ -21,18 +20,22 @@
     width: 200px;
 }
 
-/*.cell-Header-Title {
-    width: 200px;
-    text-align:center!important;
-}*/
+.cell-Header-Title {
+    width: 170px;
+}
 
 .cell-Header-Category {
-    width: 150px;
+    width: 170px;
+    text-align:center!important;
+}
+
+.cell-Header-Measure {
+    width: 170px;
     text-align:center!important;
 }
 
 .cell-Header-Price {
-    width: 150px;
+    width: 170px;
     text-align:center!important;
 }
 
@@ -42,7 +45,7 @@
 }
 
 .cell-Header-Subtotal {
-    width: 100px;
+    width: 170px;
     text-align:center!important;
 }
 
@@ -52,10 +55,26 @@
 }
 
 .cell-Header-Total {
-    text-align:right!important;
     font-size: 22px!important;
     padding-top: 10px!important;
     padding-bottom: 10px!important;
+}
+
+.contenedor-btn {
+    float: left; 
+    width: 100%;
+}
+
+.contenedor-btn-continuar {
+    float: left;
+    text-align: left;
+    width: 400px;
+}
+
+.contenedor-btn-realizar {
+    float: right;
+    text-align: right;
+    width: 400px;
 }
 
 .cart-Item-Image {
@@ -69,6 +88,12 @@
 }
 
 .cart-Item-Category {
+    text-align:center!important;
+    font-size: 22px!important;
+    margin-top: 5px;
+}
+
+.cart-Item-Measure {
     text-align:center!important;
     font-size: 22px!important;
     margin-top: 5px;

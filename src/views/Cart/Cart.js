@@ -9,10 +9,35 @@ import '../../components/ItemCountCart/ItemCountCart.css'
 //COMPONENTES
 import ItemCountCart from '../../components/ItemCountCart/ItemCountCart'
 
+const btnRemove = {
+    margin: '0px', 
+    padding: '5px', 
+    backgroundColor: 'transparent', 
+    color: 'red'
+}
+
+const btnDeleteAll = {
+    margin: '15px', 
+    backgroundColor: 'transparent', 
+    color: 'red', 
+    border: '1px solid red'
+}
+
+const btnContComprando = {
+    paddingTop: '15px', 
+    margin: '0px 0px 0px 0px'
+}
+
+const btnFinPedido = {
+    paddingTop: '15px', 
+    margin: '0px 0px 0px 10px'
+}
+
 function Cart() {
     
     const {removeItem, clear, cartItems} = useContext(CartContext);
     console.log(cartItems);
+    
     return (
         <div className="cartContainer">
             <div className="content-cart-item">
@@ -33,6 +58,7 @@ function Cart() {
                                             <Table.HeaderCell className='cell-Header-Product'><b>Producto</b></Table.HeaderCell>
                                             <Table.HeaderCell className='cell-Header-Title'><b>Nombre del Producto</b></Table.HeaderCell>
                                             <Table.HeaderCell className='cell-Header-Category'><b>Categoría</b></Table.HeaderCell>
+                                            <Table.HeaderCell className='cell-Header-Measure'><b>Medida</b></Table.HeaderCell>
                                             <Table.HeaderCell className='cell-Header-Price'><b>Precio x unid.</b></Table.HeaderCell>
                                             <Table.HeaderCell className='cell-Header-Quantity'><b>Cantidad</b></Table.HeaderCell>
                                             <Table.HeaderCell className='cell-Header-Subtotal'><b>Subtotal</b></Table.HeaderCell>
@@ -63,6 +89,12 @@ function Cart() {
                                                     <div className="cart-Item-Category">Deportes</div>       
                                                 }
                                             </Table.Cell>
+                                                
+                                            <Table.Cell>
+                                                {
+                                                    <div className="cart-Item-Measure">80cm x 80cm</div>
+                                                }
+                                            </Table.Cell>    
 
                                             <Table.Cell>
                                                 {
@@ -72,7 +104,7 @@ function Cart() {
 
                                             <Table.Cell>
                                                 {
-                                                    <ItemCountCart stock={item.item.stock} initial={item.quantity} />
+                                                    <ItemCountCart stock={item.item.stock} initial={item.quantity} item={item.item} />
                                                 }
                                             </Table.Cell>
                                             
@@ -85,7 +117,7 @@ function Cart() {
                                             <Table.Cell>
                                                 {
                                                     <div className="container-Btn-Remove">
-                                                        <Button onClick={()=>removeItem(item.item.id)} style={{margin: '0px', padding: '5px', backgroundColor: 'transparent', color: 'red'}}>
+                                                        <Button onClick={()=>removeItem(item.item.id)} style={btnRemove}>
                                                             <Icon name="trash alternate" className="icon-Item-Delete" />
                                                         </Button>
                                                     </div>
@@ -107,32 +139,40 @@ function Cart() {
                             <Table.Header>
                                 <Table.Row>
                                     <Table.HeaderCell className='cell-Header-Total'>
-                                        {
-                                            <div>TOTAL: ${cartItems.map(obj => obj.item.price * obj.quantity).reduce((a,b)=> a + b)}
-                                                <Link to="/orderForm">
-                                                    <Button color='green' style={{paddingTop: '15px', margin: '0px 0px 0px 10px'}}>REALIZAR EL PEDIDO</Button>
-                                                </Link>
+                                        {     
+                                            <div className="contenedor-btn">
+                                                <div className="contenedor-btn-continuar">    
+                                                    <Link to="/">
+                                                        <Button  color='orange' style={btnContComprando}>CONTINUAR COMPRANDO</Button>
+                                                    </Link>
+                                                </div>
+
+                                                <div className="contenedor-btn-realizar">    
+                                                    TOTAL: ${cartItems.map(obj => obj.item.price * obj.quantity).reduce((a,b)=> a + b)}
+                                                    <Link to="/orderForm">
+                                                        <Button color='green' style={btnFinPedido}>REALIZAR EL PEDIDO</Button>
+                                                    </Link>
+                                                </div>
                                             </div>
                                         }
                                     </Table.HeaderCell>
                                 </Table.Row>
-                            </Table.Header>
-
-                            
+                            </Table.Header>   
                         </Table>
                     
-                        <Button onClick={()=>clear()} style={{margin: '15px', backgroundColor: 'transparent', color: 'red', border: '1px solid red'}}>
+                        <Button onClick={()=>clear()} style={btnDeleteAll}>
                             <Icon name="trash alternate" className="icon-Item-Delete-All" /><b style={{fontSize:'20px'}}>Eliminar todo</b>
                         </Button>
 
                     </div>
+                    
                 :
             
                     <div>    
                         <h2>No hay ítems</h2>   
 
                         <Link to="/">
-                            <Button  color='red' style={{margin: '1px', marginTop: '20px'}}>SEGUIR VIENDO EL CATÁLOGO</Button>
+                            <Button  color='orange' style={{margin: '1px', marginTop: '20px'}}>SEGUIR VIENDO EL CATÁLOGO</Button>
                         </Link>
                     </div>
 

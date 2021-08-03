@@ -12,9 +12,9 @@ import 'semantic-ui-css/semantic.min.css'
 import './Firebase/Firebase'
 
 ReactDOM.render(
-  //<React.StrictMode>
+  
     <App />,
-  //</React.StrictMode>,
+  
   document.getElementById('root')
 );
 

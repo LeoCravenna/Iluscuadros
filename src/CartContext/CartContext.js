@@ -7,11 +7,7 @@ export const CartProvider = (props) => {
 
     const [cartItems, setCartItems] = useState([]);
 
-    console.log("Estado antes:",cartItems);
-
     const addItem = (item, quantity) => {
-
-        //let nuevoStock = item.stock - quantity;
 
         const isInCart = cartItems.find(cart => cart.item.id === item.id);
     
@@ -30,10 +26,30 @@ export const CartProvider = (props) => {
             ])
 
         }   
-    
+       
     }
 
-    console.log("Estado despues:",cartItems);
+    const handleQuantityUp = (item, initial) => {
+
+        const newQuantity = initial + 1;
+        const newCart = cartItems.filter(cart => cart.item.id !== item.id);
+
+        setCartItems([
+            ...newCart, {item, quantity:newQuantity}
+        ])
+
+    }
+
+    const handleQuantityDown = (item, initial) => {
+        
+        const newQuantity = initial - 1;
+        const newCart = cartItems.filter(cart => cart.item.id !== item.id);
+
+        setCartItems([
+            ...newCart, {item, quantity:newQuantity}
+        ])
+
+    }
 
     const removeItem = (id) => {
 
@@ -50,7 +66,7 @@ export const CartProvider = (props) => {
     }
 
     return (
-        <CartContext.Provider value={{addItem, removeItem, clear, cartItems, setCartItems}}>
+        <CartContext.Provider value={{addItem, handleQuantityUp, handleQuantityDown, removeItem, clear, cartItems, setCartItems}}>
             {props.children}
         </CartContext.Provider>
     )

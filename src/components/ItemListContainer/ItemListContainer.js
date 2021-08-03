@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Icon } from 'semantic-ui-react'
-//import axios from 'axios'
+import './ItemListContainer.css'
 
 //COMPONENTES
 import ItemList from '../ItemList/ItemList'
@@ -28,23 +28,15 @@ function ItemListContainer({match}) {
         getProductos(); 
         setIsLoading(false);              
     }, []);
-
-    //////////////////////////////////////////////////
-    /*useEffect(() => {
-            axios('Json/Cuadros.json')
-           .then(res => setCategoryItem(res.data));    
-    }, []);
-    console.log("id:",categoryItem);*/
-    //////////////////////////////////////////////////
      
     let categorySelect = categoryItem.filter(item => item.category === categoryId);
 
     return (
 
-        <div style={{marginTop: '20px', marginBottom: '20px'}}>
+        <div className='containerItem'>
 
             {isLoading === true ?
-                <p style={{fontSize: '30px', color: 'black'}}><Icon loading name='spinner' /> Cargando...</p>
+                <p className='loadingItem'><Icon loading name='spinner' /> Cargando...</p>
             :
                 <div>
                     {categoryId !== undefined ? // SI EL ID DE LA CATEGORÍA ES DISTINTO A UNDEFINED, MUESTRA LA CATEGORÍA ELEGIDA                                               
